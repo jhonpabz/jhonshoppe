@@ -8,11 +8,13 @@
         <slot />
       </div>
       <div class="drawer-side">
-        <label for="my-drawer-2" class="drawer-overlay"></label>
+        <!-- <label for="my-drawer-2" class="drawer-overlay">SEARCH FILTER</label> -->
+        <!-- <label for="" class="p-6">SEARCH FILTER</label> -->
+        <div for="my-drawer-2 " class="bg-slate-800 pl-8">SEARCH FILTER</div>
         <ul class="menu p-4 w-64 h-full bg-base-200 text-base-content">
           <!-- Sidebar content here -->
-          <!-- <li><a>Sidebar Item 1</a></li> -->
-          <li v-for="category in categories" :key="category">
+
+          <!-- <li v-for="category in categories" :key="category">
             <div class="form-control">
               <label class="cursor-pointer label">
                 <span class="label-text w-32">{{
@@ -28,7 +30,7 @@
                 />
               </label>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -38,19 +40,17 @@
 <script setup>
 import { watchEffect } from 'vue';
 const { data: products, status } = await useGetProducts();
-const prd = useProducts();
-const checkedCategories = ref(['TEST']);
+
 const categories = useCategories();
 const selectedCategories = useSelectedCategories();
 const filteredProducts = useFilteredProducts();
 
 watchEffect(() => {
-  const f = products.value.filter(
+  const filtered = products.value.filter(
     (p) => selectedCategories.value.indexOf(p.category) !== -1
   );
 
-  filteredProducts.value = f;
-  console.log('f', filteredProducts.value);
+  filteredProducts.value = filtered;
 });
 </script>
 
