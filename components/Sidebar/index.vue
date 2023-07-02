@@ -15,7 +15,9 @@
           <li v-for="category in categories" :key="category">
             <div class="form-control">
               <label class="cursor-pointer label">
-                <span class="label-text w-32">{{ category }}</span>
+                <span class="label-text w-32">{{
+                  category.charAt(0).toUpperCase() + category.slice(1)
+                }}</span>
                 <input
                   :name="category"
                   :id="category"
