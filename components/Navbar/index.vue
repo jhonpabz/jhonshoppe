@@ -29,9 +29,9 @@
           </li>
         </ul>
       </div>
-      <a class="btn btn-ghost normal-case text-xl"
-        >JHONSHOPPE {{ selectedCategories }}</a
-      >
+      <div class="btn btn-ghost normal-case text-xl">
+        <NuxtLink to="/">JHONSHOPPE</NuxtLink>
+      </div>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1"></ul>

@@ -27,11 +27,6 @@
               </label>
             </div>
           </li>
-          <li>
-            <span>Checked : {{ selectedCategories }}</span>
-          </li>
-          <li><button @click="prd = checkedCategories">PROD</button></li>
-          <li><button @click="handleClick">Log</button></li>
         </ul>
       </div>
     </div>
@@ -55,12 +50,6 @@ watchEffect(() => {
   filteredProducts.value = f;
   console.log('f', filteredProducts.value);
 });
-
-const handleClick = () => {
-  // prd = 'new product';
-  // console.log('products', products.value);
-  console.log(prd.value);
-};
 </script>
 
 <style lang="scss" scoped></style>
