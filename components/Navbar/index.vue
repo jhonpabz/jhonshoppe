@@ -37,15 +37,15 @@
       <ul class="menu menu-horizontal px-1"></ul>
     </div>
     <div class="navbar-end">
-      <a class="btn">
-        <NuxtLink to="/cart"> <IconsCart /> </NuxtLink>
-      </a>
+      <NuxtLink to="/cart">
+        <a class="btn">
+          <IconsCart />
+        </a>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
-<script setup>
-const selectedCategories = useSelectedCategories();
-</script>
+<script setup></script>
 
 <style></style>

@@ -8,13 +8,11 @@
         <slot />
       </div>
       <div class="drawer-side">
-        <!-- <label for="my-drawer-2" class="drawer-overlay">SEARCH FILTER</label> -->
-        <!-- <label for="" class="p-6">SEARCH FILTER</label> -->
-        <div for="my-drawer-2 " class="bg-slate-800 pl-8">SEARCH FILTER</div>
+        <div for="my-drawer-2 " class="pl-8">SEARCH FILTER</div>
         <ul class="menu p-4 w-64 h-full bg-base-200 text-base-content">
           <!-- Sidebar content here -->
 
-          <!-- <li v-for="category in categories" :key="category">
+          <li v-for="category in categories" :key="category">
             <div class="form-control">
               <label class="cursor-pointer label">
                 <span class="label-text w-32">{{
@@ -30,7 +28,10 @@
                 />
               </label>
             </div>
-          </li> -->
+          </li>
+          <SidebarDropdown />
+
+          <!--     <button @click="handleLog">log</button> -->
         </ul>
       </div>
     </div>
@@ -38,12 +39,20 @@
 </template>
 
 <script setup>
-import { watchEffect } from 'vue';
-const { data: products, status } = await useGetProducts();
+import { watchEffect } from "vue";
+const { data: products } = await useAppFetch("getProducts");
 
 const categories = useCategories();
+const { data: categoriesFromApi } = await useAppFetch("getCategories");
 const selectedCategories = useSelectedCategories();
 const filteredProducts = useFilteredProducts();
+const prds = useProducts();
+
+watchEffect(() => {
+  if (filteredProducts.value) {
+    prds.value = products;
+  }
+});
 
 watchEffect(() => {
   const filtered = products.value.filter(
@@ -52,6 +61,17 @@ watchEffect(() => {
 
   filteredProducts.value = filtered;
 });
+
+watchEffect(() => {
+  if (categoriesFromApi.value) {
+    categories.value = categoriesFromApi.value;
+  }
+});
+
+// const handleLog = () => {
+//   console.log("categories: ", categories.value);
+//   console.log("categoriesFromApi: ", categoriesFromApi.value);
+// };
 </script>
 
 <style lang="scss" scoped></style>

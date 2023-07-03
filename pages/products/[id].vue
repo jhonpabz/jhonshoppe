@@ -3,8 +3,7 @@ definePageMeta({
   layout: false,
 });
 const { id } = useRoute().params;
-const { data: product, pending } = await useGetProduct(id);
-console.log(pending.value, 'pending');
+const { data: product } = await useAppFetch("getProducts", id);
 </script>
 
 <template>
