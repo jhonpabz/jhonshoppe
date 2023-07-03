@@ -31,6 +31,16 @@ export const useCartIems = () =>
       category: 'electronics',
       description: 'Lorem',
       image: 'zxv',
+      quantity: 1,
+    },
+    {
+      id: 1,
+      title: 'Shirt',
+      price: '500',
+      category: 'mens clothing',
+      description: 'Lorem',
+      image: 'zxv',
+      quantity: 3,
     },
   ]);
 
