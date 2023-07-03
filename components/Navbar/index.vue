@@ -30,7 +30,7 @@
         </ul>
       </div>
       <div class="btn btn-ghost normal-case text-xl">
-        <NuxtLink to="/">JHONSHOPPE</NuxtLink>
+        <NuxtLink to="/" class="font-extrabold">JHONSHOPPE</NuxtLink>
       </div>
     </div>
     <div class="navbar-center hidden lg:flex">

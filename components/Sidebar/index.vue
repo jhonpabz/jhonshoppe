@@ -8,9 +8,12 @@
         <slot />
       </div>
       <div class="drawer-side">
-        <div for="my-drawer-2 " class="pl-8">SEARCH FILTER</div>
+        <div for="my-drawer-2 " class="pl-8 pt-8 flex">
+          <IconsFilter class="mt-1" />
+          <span class="font-bold">FILTERS</span>
+        </div>
 
-        <ul class="menu p-4 w-64 h-full text-base-content">
+        <ul class="menu p-4 w-72 h-full text-base-content">
           <!-- Sidebar content here -->
           <SidebarSearch />
           <li v-for="category in categories" :key="category">
@@ -30,7 +33,7 @@
               </label>
             </div>
           </li>
-          <div>
+          <div class="mt-8">
             <SidebarSort />
             <SidebarSortByPrice />
           </div>

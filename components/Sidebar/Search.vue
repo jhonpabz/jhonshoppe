@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-8 ml-4">
     <label for="simple-search" class="sr-only">Search</label>
     <div class="relative w-full">
       <div
@@ -21,6 +21,7 @@
       </div>
       <input
         type="text"
+        v-model="searchQuery"
         id="simple-search"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         placeholder="Search"
@@ -28,8 +29,33 @@
       />
     </div>
   </div>
+  {{ searchQuery }}
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, watch } from "vue";
+const filteredProducts = useFilteredProducts();
+const prds = useProducts();
+const searchQuery = ref("");
+
+// Refetching products:
+const { data: products } = await useAppFetch("getProducts");
+const { data: categoriesFromApi } = await useAppFetch("getCategories");
+
+watch(searchQuery, () => {
+  if (filteredProducts.value.length && searchQuery.value !== "") {
+    const filterByName = filteredProducts.value.filter((item) =>
+      item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+    );
+    filteredProducts.value = filterByName;
+  } else if (prds.value.length && searchQuery.value !== "") {
+    const filterByName = prds.value.filter((item) =>
+      item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+    );
+
+    prds.value = filterByName;
+  }
+});
+</script>
 
 <style scoped></style>
