@@ -38,7 +38,9 @@
     </div>
     <div class="navbar-end">
       <a class="btn">
-        <IconsCart />
+        <NuxtLink to="/cart">
+          <IconsCart />
+        </NuxtLink>
       </a>
     </div>
   </div>

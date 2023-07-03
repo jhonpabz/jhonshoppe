@@ -9,6 +9,8 @@
 
 export const useProducts = () => useState('prd', () => []);
 export const useFilteredProducts = () => useState('filteredProducts', () => []);
+
+//Todo: fetch the categories from API
 export const useCategories = () =>
   useState('categories', () => [
     'electronics',
@@ -18,6 +20,19 @@ export const useCategories = () =>
   ]);
 export const useSelectedCategories = () =>
   useState('selectedCategories', () => []);
+
+//Dummy data for now
+export const useCartIems = () =>
+  useState('cartItems', () => [
+    {
+      id: 1,
+      title: 'Iphone',
+      price: '80000',
+      category: 'electronics',
+      description: 'Lorem',
+      image: 'zxv',
+    },
+  ]);
 
 // export const useGetProducts = async () => {
 //   const apiUrl = process.env.API_BASE_URL;
