@@ -9,9 +9,10 @@
       </div>
       <div class="drawer-side">
         <div for="my-drawer-2 " class="pl-8">SEARCH FILTER</div>
-        <ul class="menu p-4 w-64 h-full bg-base-200 text-base-content">
-          <!-- Sidebar content here -->
 
+        <ul class="menu p-4 w-64 h-full text-base-content">
+          <!-- Sidebar content here -->
+          <SidebarSearch />
           <li v-for="category in categories" :key="category">
             <div class="form-control">
               <label class="cursor-pointer label">
@@ -29,8 +30,10 @@
               </label>
             </div>
           </li>
-          <SidebarDropdown />
-
+          <div>
+            <SidebarSort />
+            <SidebarSortByPrice />
+          </div>
           <!--     <button @click="handleLog">log</button> -->
         </ul>
       </div>

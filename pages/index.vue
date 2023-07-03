@@ -1,6 +1,4 @@
 <script setup>
-// const { data: products } = await useFetch("https://fakestoreapi.com/products");
-// const { data: products, status } = await useGetProducts();
 const prds = useProducts();
 const filteredProducts = useFilteredProducts();
 </script>
