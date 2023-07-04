@@ -16,10 +16,13 @@
 
         <div class="flex mt-2">
           <ButtonQuantity />
-          <button class="btn btn-success">
+          <button @click="cart.addProduct()" class="btn btn-success">
             <IconsCart />
             Add to cart
           </button>
+        </div>
+        <div>
+          {{ cartValue }}
         </div>
       </div>
     </div>
@@ -28,6 +31,8 @@
 
 <script setup>
 const { product } = defineProps(["product"]);
+const cart = useCart();
+const cartValue = useCookie("cart");
 </script>
 
 <style scoped></style>

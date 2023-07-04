@@ -1,21 +1,23 @@
 <script setup>
-useHead({
-  title: "JHONSHOPPE - Products",
-  meta: [{ name: "description", content: "Nuxt 3 Ecommerce" }],
-});
-
-const { data: products } = await useFetch("/api/products");
-
-const handleClick = () => {
-  console.log("ENV: ", process.env.API_BASE_URL);
-};
+const prds = useProducts();
+const filteredProducts = useFilteredProducts();
 </script>
 
 <template>
-  <button @click="handleClick" class="btn btn-outline">TEST ENV</button>
   <div>
-    <div class="grid grid-cols-4 gap-5">
-      <div v-for="product in products" :key="product.id">
+    <div
+      v-if="filteredProducts.length"
+      class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-14 lg:pr-40"
+    >
+      <div v-for="product in filteredProducts" :key="product.id">
+        <ProductCard :product="product" />
+      </div>
+    </div>
+    <div
+      v-else
+      class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-14 lg:pr-40"
+    >
+      <div v-for="product in prds" :key="product.id">
         <ProductCard :product="product" />
       </div>
     </div>

@@ -3,7 +3,6 @@ definePageMeta({
   layout: false,
 });
 const { id } = useRoute().params;
-// const { data: product } = await useAppFetch("getProducts", id);
 const { data: product } = await useFetch(`/api/products/${id}`);
 </script>
 
@@ -13,6 +12,7 @@ const { data: product } = await useFetch(`/api/products/${id}`);
       <Title>JHONSHOPPE | {{ product.title }}</Title>
       <Meta name="description" :content="product.description" />
     </Head>
+
     <ProductDetails :product="product" />
   </NuxtLayout>
 </template>

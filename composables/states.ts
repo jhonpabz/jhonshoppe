@@ -28,3 +28,31 @@ export const useCartIems = () =>
     },
   ]);
 ``;
+
+// type AddProductsProps ={
+//   id:number;
+//   title:string;
+//   price:string;
+//   category:string;
+//   description:string;
+//   image:string;
+// }<Partial<Record<string, number>>>
+
+export const useCart = () => {
+  const productCount = useCookie("cart", {
+    default() {
+      return {};
+    },
+  });
+
+  const addProduct = (payload) => {
+    // @ts-ignore
+    productCount.value = payload;
+    console.log("asdf", productCount.value);
+  };
+
+  return {
+    productCount: productCount.value,
+    addProduct,
+  };
+};
