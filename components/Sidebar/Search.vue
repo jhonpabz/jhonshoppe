@@ -29,11 +29,12 @@
       />
     </div>
   </div>
-  {{ searchQuery }}
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, watchEffect } from "vue";
+
+const { data: products } = await useFetch("/api/products");
 
 const filteredProducts = useFilteredProducts();
 const prds = useProducts();
@@ -50,6 +51,12 @@ watch(searchQuery, () => {
     );
 
     prds.value = filterByName;
+  }
+});
+
+watchEffect(() => {
+  if (searchQuery.value === "") {
+    prds.value = products;
   }
 });
 </script>

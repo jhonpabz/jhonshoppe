@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="drawer lg:drawer-open bg-gray-50">
+    <div class="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col items-center justify-center">
         <!-- Page content here -->
@@ -28,7 +28,7 @@
                   v-model="selectedCategories"
                   type="checkbox"
                   :value="category"
-                  class="checkbox checkbox-info"
+                  class="checkbox checkbox-success"
                 />
               </label>
             </div>
