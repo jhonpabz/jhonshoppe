@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="drawer lg:drawer-open">
+    <div class="drawer lg:drawer-open bg-gray-50">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col items-center justify-center">
         <!-- Page content here -->

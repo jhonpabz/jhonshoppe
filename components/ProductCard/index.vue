@@ -1,23 +1,24 @@
 <template>
   <NuxtLink :to="`/products/${product.id}`">
-    <div class="text-center bg-white p-6">
+    <div class="bg-white p-6 lg:w-96 w-80">
       <img
         :src="product.image"
         alt="product img"
-        class="overflow-hidden w-auto h-96 mx-auto"
+        class="overflow-hidden w-auto h-72 mx-auto"
       />
-      <p class="font-bold text-gray-500 m-4 truncate">{{ product.title }}</p>
-      <p class="font-bold text-gray-500 m-4 truncate">${{ product.price }}</p>
-      <p class="text-gray-500 m-4 truncate">${{ product.description }}</p>
-      <!-- <NuxtLink :to="`/products/${product.id}`"
-      ><button class="btn btn-outline">View Details</button></NuxtLink
-    > -->
+      <p class="font-semibold text-gray-950 mt-4 truncate text-2xl">
+        {{ product.title }}
+      </p>
+      <p class="text-gray-600 mt-1 truncate">${{ product.description }}</p>
+      <p class="font-bold text-gray-900 mt-3 truncate text-2xl">
+        ${{ product.price }}
+      </p>
     </div>
   </NuxtLink>
 </template>
 
 <script setup>
-const { product } = defineProps(['product']);
+const { product } = defineProps(["product"]);
 </script>
 
 <style scoped></style>
