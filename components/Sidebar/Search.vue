@@ -39,7 +39,8 @@ const prds = useProducts();
 const searchQuery = ref("");
 
 // Refetching products:
-const { data: products } = await useAppFetch("getProducts");
+// const { data: products } = await useAppFetch("getProducts");
+const { data: products } = await useFetch("/api/products");
 const { data: categoriesFromApi } = await useAppFetch("getCategories");
 
 watch(searchQuery, () => {

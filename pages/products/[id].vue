@@ -3,7 +3,8 @@ definePageMeta({
   layout: false,
 });
 const { id } = useRoute().params;
-const { data: product } = await useAppFetch("getProducts", id);
+// const { data: product } = await useAppFetch("getProducts", id);
+const { data: product } = await useFetch(`/api/products/${id}`);
 </script>
 
 <template>

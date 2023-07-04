@@ -46,7 +46,8 @@
 
 <script setup>
 import { watchEffect } from "vue";
-const { data: products } = await useAppFetch("getProducts");
+// const { data: products } = await useAppFetch("getProducts");
+const { data: products } = await useFetch("/api/products");
 
 const categories = useCategories();
 const { data: categoriesFromApi } = await useAppFetch("getCategories");
@@ -61,7 +62,7 @@ watchEffect(() => {
 });
 
 watchEffect(() => {
-  const filtered = products.value.filter(
+  const filtered = products?.value?.filter(
     (p) => selectedCategories.value.indexOf(p.category) !== -1
   );
 

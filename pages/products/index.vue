@@ -1,15 +1,15 @@
 <script setup>
 useHead({
-  title: 'JHONSHOPPE - Products',
-  meta: [{ name: 'description', content: 'Nuxt 3 Ecommerce' }],
+  title: "JHONSHOPPE - Products",
+  meta: [{ name: "description", content: "Nuxt 3 Ecommerce" }],
 });
 
 // const { data: products } = await useFetch("https://fakestoreapi.com/products");
-const { data: products, status } = await useGetProducts();
+// const { data: products, status } = await useGetProducts();
+const { data: products } = await useFetch("/api/products");
 
-console.log('status: ', status.value);
 const handleClick = () => {
-  console.log('ENV: ', process.env.API_BASE_URL);
+  console.log("ENV: ", process.env.API_BASE_URL);
 };
 </script>
 
