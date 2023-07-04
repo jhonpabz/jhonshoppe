@@ -37,7 +37,6 @@
             <SidebarSort />
             <SidebarSortByPrice />
           </div>
-          <!--     <button @click="handleLog">log</button> -->
         </ul>
       </div>
     </div>
@@ -46,11 +45,10 @@
 
 <script setup>
 import { watchEffect } from "vue";
-// const { data: products } = await useAppFetch("getProducts");
 const { data: products } = await useFetch("/api/products");
+const { data: categoriesFromApi } = await useFetch("/api/categories");
 
 const categories = useCategories();
-const { data: categoriesFromApi } = await useAppFetch("getCategories");
 const selectedCategories = useSelectedCategories();
 const filteredProducts = useFilteredProducts();
 const prds = useProducts();
@@ -74,11 +72,6 @@ watchEffect(() => {
     categories.value = categoriesFromApi.value;
   }
 });
-
-// const handleLog = () => {
-//   console.log("categories: ", categories.value);
-//   console.log("categoriesFromApi: ", categoriesFromApi.value);
-// };
 </script>
 
 <style lang="scss" scoped></style>

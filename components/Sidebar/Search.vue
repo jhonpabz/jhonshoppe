@@ -34,22 +34,17 @@
 
 <script setup>
 import { ref, watch } from "vue";
+
 const filteredProducts = useFilteredProducts();
 const prds = useProducts();
 const searchQuery = ref("");
-
-// Refetching products:
-// const { data: products } = await useAppFetch("getProducts");
-const { data: products } = await useFetch("/api/products");
-const { data: categoriesFromApi } = await useAppFetch("getCategories");
+const selectedCategories = useSelectedCategories();
 
 watch(searchQuery, () => {
-  if (filteredProducts.value.length && searchQuery.value !== "") {
-    const filterByName = filteredProducts.value.filter((item) =>
-      item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
-    );
-    filteredProducts.value = filterByName;
-  } else if (prds.value.length && searchQuery.value !== "") {
+  if (searchQuery.value !== "") {
+    filteredProducts.value = [];
+    selectedCategories.value = [];
+
     const filterByName = prds.value.filter((item) =>
       item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
     );

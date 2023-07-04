@@ -4,8 +4,6 @@ useHead({
   meta: [{ name: "description", content: "Nuxt 3 Ecommerce" }],
 });
 
-// const { data: products } = await useFetch("https://fakestoreapi.com/products");
-// const { data: products, status } = await useGetProducts();
 const { data: products } = await useFetch("/api/products");
 
 const handleClick = () => {
