@@ -82,7 +82,6 @@ watchEffect(() => {
   );
 
   if (isOnTheCart?.length === 1) {
-    console.log("isOnTheCart: ", isOnTheCart);
     isDisabled.value = true;
   }
 });
