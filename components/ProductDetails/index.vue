@@ -15,14 +15,45 @@
         <p class="mb-7">{{ product.description }}</p>
 
         <div class="flex mt-2">
-          <ButtonQuantity />
-          <button @click="cart.addToCart(productItem)" class="btn btn-success">
-            <IconsCart />
-            Add to cart
-          </button>
-        </div>
-        <div>
-          {{ cartItems }}
+          <!--         <ButtonQuantity @qty-value="handleQuantityChange" /> -->
+          <div>
+            <label for="Quantity" class="sr-only"> Quantity </label>
+
+            <div class="flex items-center border border-gray-200 rounded mr-3">
+              <button
+                @click="quantity--"
+                type="button"
+                class="w-10 h-11 leading-10 text-gray-600 transition hover:opacity-75"
+              >
+                &minus;
+              </button>
+
+              <input
+                type="number"
+                id="Quantity"
+                :value="quantity"
+                class="h-11 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+              />
+
+              <button
+                @click="quantity++"
+                type="button"
+                class="w-10 h-11 leading-10 text-gray-600 transition hover:opacity-75"
+              >
+                &plus;
+              </button>
+            </div>
+          </div>
+          <NuxtLink to="/">
+            <button
+              @click="handleAddToCart"
+              class="btn btn-success"
+              :disabled="isDisabled"
+            >
+              <IconsCart />
+              Add to cart
+            </button>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -30,19 +61,47 @@
 </template>
 
 <script setup>
+import { watchEffect, watch, ref } from "vue";
+
 const { product } = defineProps(["product"]);
 const cart = useCart();
 const cartItems = useCookie("cart");
 
-const productItem = {
-  id: product.id,
-  title: product.title,
-  price: product.price,
-  category: product.category,
-  description: product.description,
-  image: product.image,
-  quantity: 10,
+const quantity = ref(1);
+
+const isDisabled = ref(null);
+
+const handleAddToCart = () => {
+  cart.addToCart(productItem());
+  isDisabled.value = true;
 };
+
+watchEffect(() => {
+  const isOnTheCart = cartItems?.value?.filter(
+    (item) => item.id === product.id
+  );
+
+  if (isOnTheCart?.length === 1) {
+    console.log("isOnTheCart: ", isOnTheCart);
+    isDisabled.value = true;
+  }
+});
+
+const productItem = () => {
+  return {
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    category: product.category,
+    description: product.description,
+    image: product.image,
+    quantity: quantity.value,
+  };
+};
+
+watch(quantity, () => {
+  productItem();
+});
 </script>
 
 <style scoped></style>
