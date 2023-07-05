@@ -29,30 +29,28 @@ export const useCartIems = () =>
   ]);
 ``;
 
-// type AddProductsProps ={
-//   id:number;
-//   title:string;
-//   price:string;
-//   category:string;
-//   description:string;
-//   image:string;
-// }<Partial<Record<string, number>>>
+interface ProductInterface {
+  id: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+  quantity: number;
+}
 
 export const useCart = () => {
-  const productCount = useCookie("cart", {
-    default() {
-      return {};
-    },
+  const cart = useCookie("cart", {
+    default: () => [],
+    watch: true,
   });
 
-  const addProduct = (payload) => {
+  const addToCart = (product: ProductInterface) => {
     // @ts-ignore
-    productCount.value = payload;
-    console.log("asdf", productCount.value);
+    cart.value = [...cart.value, product];
   };
 
   return {
-    productCount: productCount.value,
-    addProduct,
+    addToCart,
   };
 };
