@@ -32,17 +32,17 @@
 </template>
 
 <script setup>
-import { ref, watch, watchEffect } from "vue";
+import { ref, watch, watchEffect } from 'vue';
 
-const { data: products } = await useFetch("/api/products");
+const { data: products } = await useAppFetch('getProducts');
 
 const filteredProducts = useFilteredProducts();
 const prds = useProducts();
-const searchQuery = ref("");
+const searchQuery = ref('');
 const selectedCategories = useSelectedCategories();
 
 watch(searchQuery, () => {
-  if (searchQuery.value !== "") {
+  if (searchQuery.value !== '') {
     filteredProducts.value = [];
     selectedCategories.value = [];
 
@@ -55,7 +55,7 @@ watch(searchQuery, () => {
 });
 
 watchEffect(() => {
-  if (searchQuery.value === "") {
+  if (searchQuery.value === '') {
     prds.value = products;
   }
 });

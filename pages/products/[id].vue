@@ -4,7 +4,7 @@
 // });
 const { id } = useRoute().params;
 
-const { data: product } = await useFetch(`/api/products/${id}`);
+const { data: product } = await useAppFetch('getProducts', id);
 </script>
 
 <template>

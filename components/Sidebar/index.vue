@@ -49,9 +49,9 @@
 </template>
 
 <script setup>
-import { watchEffect } from "vue";
-const { data: products } = await useFetch("/api/products");
-const { data: categoriesFromApi } = await useFetch("/api/categories");
+import { watchEffect } from 'vue';
+const { data: products } = await useAppFetch('getProducts');
+const { data: categoriesFromApi } = await useAppFetch('getCategories');
 
 const categories = useCategories();
 const selectedCategories = useSelectedCategories();
