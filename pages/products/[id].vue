@@ -1,19 +1,17 @@
 <script setup>
-// definePageMeta({
-//   layout: false,
-// });
 const { id } = useRoute().params;
-
-const { data: product } = await useAppFetch('getProducts', id);
+const { data: product } = await useAppFetch("getProducts", id);
+// const cart = useCart();
 </script>
 
 <template>
-  <!-- <NuxtLayout name="custom"> -->
   <Head>
     <Title>JHONSHOPPE | {{ product.title }}</Title>
     <Meta name="description" :content="product.description" />
   </Head>
-
+  <p></p>
   <ProductDetails :product="product" />
-  <!-- </NuxtLayout> -->
+  <!-- <button @click="cart.addCartQuantity(25)">Add Qty</button> -->
 </template>
+
+<style></style>

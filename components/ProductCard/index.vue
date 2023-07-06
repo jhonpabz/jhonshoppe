@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="`/products/${product.id}`">
-    <div class="bg-white p-6 lg:w-96 w-80">
+    <div class="bg-white p-6 lg:w-96 w-80 border border-gray rounded-md">
       <img
         :src="product.image"
         alt="product img"

@@ -10,7 +10,7 @@
   >
     <option disabled selected>Select Category</option>
     <option v-for="category in categories" :key="category" :value="category">
-      {{ category }}
+      {{ category.charAt(0).toUpperCase() + category.slice(1) }}
     </option>
   </select>
 </template>

@@ -8,7 +8,7 @@ export const useAppFetch = (apiKey: keyof typeof apiDoc, id: string) => {
   const apiPath = apiDoc[apiKey];
   try {
     if (id) {
-      return useFetch(apiPath + `/${id}`);
+      return useFetch(`${apiPath}/${id}`);
     }
 
     return useFetch(apiPath);

@@ -13,18 +13,14 @@
 </template>
 
 <script setup>
+const { data: products } = await useAppFetch("getProducts");
 const filteredProducts = useFilteredProducts();
 
 const handleSortAlphabetically = () => {
-  if (filteredProducts.value.length) {
-    const sortByName = filteredProducts.value.sort((a, b) =>
-      a.title > b.title ? 1 : -1
-    );
-    filteredProducts.value = sortByName;
-  } else {
-    const sortByName = prds.value.sort((a, b) => (a.title > b.title ? 1 : -1));
+  const sortByName = products.value.sort((a, b) =>
+    a.title > b.title ? 1 : -1
+  );
 
-    prds.value = sortByName;
-  }
+  filteredProducts.value = sortByName;
 };
 </script>

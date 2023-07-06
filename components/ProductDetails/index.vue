@@ -62,6 +62,7 @@
 
 <script setup>
 import { watchEffect, watch, ref } from "vue";
+import { toast } from "vue3-toastify";
 
 const { product } = defineProps(["product"]);
 const cart = useCart();
@@ -74,6 +75,7 @@ const isDisabled = ref(null);
 const handleAddToCart = () => {
   cart.addToCart(productItem());
   isDisabled.value = true;
+  toast.success("Item added to your cart");
 };
 
 watchEffect(() => {
@@ -101,6 +103,12 @@ const productItem = () => {
 watch(quantity, () => {
   productItem();
 });
+
+const notify = () => {
+  // useNuxtApp().$toast.info("toastify success");
+  // or
+  toast.success("Item added to your cart");
+};
 </script>
 
 <style scoped></style>

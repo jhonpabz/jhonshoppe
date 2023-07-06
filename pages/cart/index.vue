@@ -1,5 +1,4 @@
 <template>
-  <!-- <NuxtLayout name="custom"> -->
   <div class="text-left">
     <div class="text-4xl my-4 font-bold">Your cart</div>
     <div class="flex flex-row items-center space-x-64 border-b">
@@ -25,17 +24,21 @@
         <div class="text-lg">
           {{ item.quantity }}
         </div>
+        <button @click="handleRemoveProduct(item.id)" class="btn btn-ghost">
+          <IconsDelete class="text-2xl" />
+        </button>
       </div>
     </div>
   </div>
-  <!-- </NuxtLayout> -->
 </template>
 
 <script setup>
-// definePageMeta({
-//   layout: false,
-// });
 const cartItems = useCookie("cart");
+
+const handleRemoveProduct = (id) => {
+  const itemRemove = cartItems.value.filter((item) => item.id !== id);
+  cartItems.value = itemRemove;
+};
 </script>
 
 <style scoped></style>

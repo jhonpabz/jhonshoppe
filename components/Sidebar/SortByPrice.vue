@@ -15,31 +15,20 @@
 </template>
 
 <script setup>
+const { data: products } = await useAppFetch("getProducts");
 const filteredProducts = useFilteredProducts();
 
 const sortByPriceLowToHigh = () => {
-  if (filteredProducts.value.length) {
-    const sortByPrice = filteredProducts.value.sort((a, b) =>
-      a.price > b.price ? 1 : -1
-    );
-    filteredProducts.value = sortByPrice;
-  } else {
-    const sortByPrice = prds.value.sort((a, b) => (a.price > b.price ? 1 : -1));
-
-    prds.value = sortByPrice;
-  }
+  const sortByPrice = products.value.sort((a, b) =>
+    a.price > b.price ? 1 : -1
+  );
+  filteredProducts.value = sortByPrice;
 };
 
 const sortByPriceHighToLow = () => {
-  if (filteredProducts.value.length) {
-    const sortByPrice = filteredProducts.value.sort((a, b) =>
-      a.price > b.price ? 1 : -1
-    );
-    filteredProducts.value = sortByPrice;
-  } else {
-    const sortByPrice = prds.value.sort((b, a) => (a.price > b.price ? 1 : -1));
-
-    prds.value = sortByPrice;
-  }
+  const sortByPrice = products.value.sort((a, b) =>
+    a.price < b.price ? 1 : -1
+  );
+  filteredProducts.value = sortByPrice;
 };
 </script>
