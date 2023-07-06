@@ -33,7 +33,6 @@
 
 <script setup>
 import { ref, watch, watchEffect } from "vue";
-
 const { data: products } = await useAppFetch("getProducts");
 
 const filteredProducts = useFilteredProducts();

@@ -9,7 +9,6 @@ interface ProductInterface {
   description: string;
   image: string;
   quantity: number;
-  // isAdded: boolean;
 }
 
 export const useCart = () => {
