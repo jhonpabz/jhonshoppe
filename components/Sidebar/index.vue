@@ -21,7 +21,7 @@
             <span class="font-bold">FILTERS</span>
           </div>
           <SidebarSearch />
-          <li v-for="category in categories" :key="category">
+          <!--  <li v-for="category in categories" :key="category">
             <div class="form-control">
               <label class="cursor-pointer label">
                 <span class="label-text w-32">{{
@@ -37,11 +37,12 @@
                 />
               </label>
             </div>
-          </li>
+          </li> -->
+          <SidebarSortByCategory />
           <div class="mt-8">
             <SidebarSort />
-            <SidebarSortByPrice />
           </div>
+          <div class="mt-8"><SidebarSortByPrice /></div>
         </ul>
       </div>
     </div>
@@ -49,34 +50,34 @@
 </template>
 
 <script setup>
-import { watchEffect } from 'vue';
-const { data: products } = await useAppFetch('getProducts');
-const { data: categoriesFromApi } = await useAppFetch('getCategories');
+import { watchEffect } from "vue";
+const { data: products } = await useAppFetch("getProducts");
+const { data: categoriesFromApi } = await useAppFetch("getCategories");
 
 const categories = useCategories();
 const selectedCategories = useSelectedCategories();
 const filteredProducts = useFilteredProducts();
 const prds = useProducts();
 
-watchEffect(() => {
-  if (filteredProducts.value) {
-    prds.value = products;
-  }
-});
+// watchEffect(() => {
+//   if (filteredProducts.value) {
+//     prds.value = products;
+//   }
+// });
 
-watchEffect(() => {
-  const filtered = products?.value?.filter(
-    (p) => selectedCategories.value.indexOf(p.category) !== -1
-  );
+// watchEffect(() => {
+//   const filtered = products?.value?.filter(
+//     (p) => selectedCategories.value.indexOf(p.category) !== -1
+//   );
 
-  filteredProducts.value = filtered;
-});
+//   filteredProducts.value = filtered;
+// });
 
-watchEffect(() => {
-  if (categoriesFromApi.value) {
-    categories.value = categoriesFromApi.value;
-  }
-});
+// watchEffect(() => {
+//   if (categoriesFromApi.value) {
+//     categories.value = categoriesFromApi.value;
+//   }
+// });
 </script>
 
 <style lang="scss" scoped></style>

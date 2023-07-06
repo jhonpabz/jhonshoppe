@@ -1,6 +1,7 @@
 const apiDoc = {
-  getCategories: "https://fakestoreapi.com/products/categories",
   getProducts: "https://fakestoreapi.com/products",
+  getCategories: "https://fakestoreapi.com/products/categories",
+  getCategory: "https://fakestoreapi.com/products/category",
 };
 
 export const useAppFetch = (apiKey: keyof typeof apiDoc, id: string) => {
