@@ -1,5 +1,4 @@
 <script setup>
-const prds = useProducts();
 const filteredProducts = useFilteredProducts();
 </script>
 

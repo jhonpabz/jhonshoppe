@@ -21,23 +21,7 @@
             <span class="font-bold">FILTERS</span>
           </div>
           <SidebarSearch />
-          <!--  <li v-for="category in categories" :key="category">
-            <div class="form-control">
-              <label class="cursor-pointer label">
-                <span class="label-text w-32">{{
-                  category.charAt(0).toUpperCase() + category.slice(1)
-                }}</span>
-                <input
-                  :name="category"
-                  :id="category"
-                  v-model="selectedCategories"
-                  type="checkbox"
-                  :value="category"
-                  class="checkbox checkbox-success"
-                />
-              </label>
-            </div>
-          </li> -->
+
           <SidebarSortByCategory />
           <div class="mt-8">
             <SidebarSort />
@@ -49,35 +33,6 @@
   </div>
 </template>
 
-<script setup>
-import { watchEffect } from "vue";
-const { data: products } = await useAppFetch("getProducts");
-const { data: categoriesFromApi } = await useAppFetch("getCategories");
-
-const categories = useCategories();
-const selectedCategories = useSelectedCategories();
-const filteredProducts = useFilteredProducts();
-const prds = useProducts();
-
-// watchEffect(() => {
-//   if (filteredProducts.value) {
-//     prds.value = products;
-//   }
-// });
-
-// watchEffect(() => {
-//   const filtered = products?.value?.filter(
-//     (p) => selectedCategories.value.indexOf(p.category) !== -1
-//   );
-
-//   filteredProducts.value = filtered;
-// });
-
-// watchEffect(() => {
-//   if (categoriesFromApi.value) {
-//     categories.value = categoriesFromApi.value;
-//   }
-// });
-</script>
+<script setup></script>
 
 <style lang="scss" scoped></style>

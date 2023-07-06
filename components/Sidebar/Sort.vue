@@ -14,7 +14,6 @@
 
 <script setup>
 const filteredProducts = useFilteredProducts();
-const prds = useProducts();
 
 const handleSortAlphabetically = () => {
   if (filteredProducts.value.length) {

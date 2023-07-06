@@ -16,7 +16,6 @@
 
 <script setup>
 const filteredProducts = useFilteredProducts();
-const prds = useProducts();
 
 const sortByPriceLowToHigh = () => {
   if (filteredProducts.value.length) {

@@ -32,31 +32,26 @@
 </template>
 
 <script setup>
-import { ref, watch, watchEffect } from 'vue';
+import { ref, watch, watchEffect } from "vue";
 
-const { data: products } = await useAppFetch('getProducts');
+const { data: products } = await useAppFetch("getProducts");
 
 const filteredProducts = useFilteredProducts();
-const prds = useProducts();
-const searchQuery = ref('');
-const selectedCategories = useSelectedCategories();
+const searchQuery = ref("");
 
 watch(searchQuery, () => {
-  if (searchQuery.value !== '') {
-    filteredProducts.value = [];
-    selectedCategories.value = [];
-
-    const filterByName = prds.value.filter((item) =>
+  if (searchQuery.value !== "") {
+    const filterByName = products.value.filter((item) =>
       item.title.toLowerCase().includes(searchQuery.value.toLowerCase())
     );
 
-    prds.value = filterByName;
+    filteredProducts.value = filterByName;
   }
 });
 
 watchEffect(() => {
-  if (searchQuery.value === '') {
-    prds.value = products;
+  if (searchQuery.value === "") {
+    filteredProducts.value = [];
   }
 });
 </script>

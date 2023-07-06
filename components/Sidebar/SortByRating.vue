@@ -13,7 +13,6 @@
 
 <script setup>
 const filteredProducts = useFilteredProducts();
-const prds = useProducts();
 
 const handleSortByPrice = () => {
   if (filteredProducts.value.length) {

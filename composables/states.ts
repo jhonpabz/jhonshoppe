@@ -1,9 +1,5 @@
-export const useProducts = () => useState("prds", () => []);
 export const useFilteredProducts = () => useState("filteredProducts", () => []);
 export const useCategories = () => useState("categories", () => []);
-// export const useQuantity = () => useState("quantity", () => 1);
-export const useSelectedCategories = () =>
-  useState("selectedCategories", () => []);
 
 interface ProductInterface {
   id: number;
