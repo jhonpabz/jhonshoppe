@@ -1,6 +1,6 @@
 const apiDoc = {
-  getProducts: "https://fakestoreapi.com/products",
-  getCategories: "https://fakestoreapi.com/products/categories",
+  getProducts: "/api/products",
+  getCategories: "/api/categories",
   getCategory: "https://fakestoreapi.com/products/category",
 };
 

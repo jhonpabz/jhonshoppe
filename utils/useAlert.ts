@@ -2,9 +2,8 @@ import Swal from "sweetalert2";
 
 export const useAlert = () => {
   const cartSuccess = () => {
-    // @ts-ignore
     Swal.fire({
-      title: "Success!",
+      title: "Added!",
       text: "Item added to your cart",
       icon: "success",
       confirmButtonText: "Okay",
@@ -12,10 +11,9 @@ export const useAlert = () => {
   };
 
   const cartItemDeleted = () => {
-    // @ts-ignore
     Swal.fire({
-      title: "Success!",
-      text: "Item removed in cart.",
+      title: "Deleted!",
+      text: "Item has been removed to cart.",
       icon: "success",
       confirmButtonText: "Okay",
     });

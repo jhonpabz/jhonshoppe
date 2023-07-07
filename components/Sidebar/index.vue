@@ -39,9 +39,9 @@
           </div>
           <SidebarSearch :isReset="isReset" />
 
-          <SidebarSortByCategory />
+          <SidebarSortByCategory :isReset="isReset" />
           <div class="mt-8">
-            <SidebarSort />
+            <SidebarSortAlphabetically />
           </div>
           <div class="mt-8"><SidebarSortByPrice /></div>
         </ul>

@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown dropdown-hover ml-4">
-    <label tabindex="0" class="underline m-1 flex text-base"
+    <label tabindex="0" class="underline m-1 flex text-sm font-semibold"
       >Sort by Price
       <IconsDropdown class="text-xl" />
     </label>

@@ -6,7 +6,7 @@ const filteredProducts = useFilteredProducts();
 <template>
   <div>
     <div
-      v-if="filteredProducts.length"
+      v-if="filteredProducts?.length"
       class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-14 mt-8"
     >
       <div v-for="product in filteredProducts" :key="product.id">

@@ -1,9 +1,9 @@
 <template>
-  <label
+  <!-- <label
     for="countries"
     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ml-4"
     >Select Category</label
-  >
+  > -->
   <select
     v-model="selectedCategory"
     class="select select-bordered select-sm ml-4"
@@ -18,7 +18,7 @@
 <script setup>
 import { ref, watchEffect, watch } from "vue";
 
-const selectedCategory = ref(null);
+const selectedCategory = ref("Select Category");
 const { data: categories } = await useAppFetch("getCategories");
 
 const filteredProducts = useFilteredProducts();
@@ -32,7 +32,5 @@ watch(selectedCategory, async () => {
   if (productsCategory) {
     filteredProducts.value = productsCategory.value;
   }
-
-  console.log("filteredProducts: ", filteredProducts.value);
 });
 </script>
