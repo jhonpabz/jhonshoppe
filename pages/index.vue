@@ -4,7 +4,7 @@ const filteredProducts = useFilteredProducts();
 </script>
 
 <template>
-  <div>
+  <div class="my-14">
     <Header />
     <div
       v-if="filteredProducts?.length"
