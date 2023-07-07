@@ -3,18 +3,7 @@
     <HeaderEmpty />
   </div>
   <div v-else class="text-left my-14">
-    <div class="lg:text-4xl text-2xl my-4 font-bold">Your cart</div>
-    <div
-      class="flex flex-row items-center lg:space-x-20 md:space-x-10 space-x-1"
-    >
-      <div class="lg:w-36 w-24">Product</div>
-      <div class="lg:w-72 md:w-64 w-48 content-center"></div>
-
-      <div class="text-lg w-16">Quantity</div>
-      <div class="text-lg w-12">Action</div>
-      <div class="text-lg w-12">Total</div>
-    </div>
-
+    <HeaderCart />
     <div v-for="item in cartItems" :key="item.id">
       <div
         class="flex flex-row items-center lg:space-x-20 md:space-x-10 space-x-1"
@@ -53,11 +42,13 @@
 </template>
 
 <script setup>
+// import { ref, watchEffect } from "vue";
 const cartQuantity = useCookie("cart-quantity");
 const { removeToCart, totalPrice } = useCart();
 const cartItems = useCookie("cart");
 const { cartItemDeleted } = useAlert();
 const route = useRouter();
+// const grandTotalPrice = ref([]);
 
 const handleRemoveItem = (id) => {
   removeToCart(id);
@@ -68,6 +59,20 @@ const handleRemoveItem = (id) => {
 const goToDetailsPage = (id) => {
   return `/products/${id}`;
 };
+
+// const grandTotal = () => {
+//   cartItems.value.map((item) => {
+//     const itemTotal = item.quantity * item.price;
+
+//     return itemTotal;
+//   });
+// };
+
+// watchEffect(() => {
+//   console.log("grandTotal", grandTotal.value);
+
+//   console.log("grandTotalPrice", grandTotalPrice.value);
+// });
 </script>
 
 <style scoped></style>
