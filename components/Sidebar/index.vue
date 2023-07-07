@@ -10,10 +10,6 @@
       </div>
       <div class="drawer-side">
         <label for="my-drawer" class="drawer-overlay"> </label>
-        <!--        <div for="my-drawer " class="pl-8 pt-8 flex">
-          <IconsFilter class="mt-1" />
-          <span class="font-bold">FILTERS</span>
-        </div> -->
         <ul class="menu p-4 w-72 h-full text-base-content bg-base-200">
           <!-- Sidebar content here -->
           <div for="my-drawer " class="pl-4 mt-8 mb-2 pt-8 flex">
@@ -41,7 +37,7 @@
 
           <SidebarSortByCategory :isReset="isReset" />
           <div class="mt-8">
-            <SidebarSortAlphabetically />
+            <SidebarSort />
           </div>
           <div class="mt-8"><SidebarSortByPrice /></div>
         </ul>

@@ -1,5 +1,6 @@
 export const useFilteredProducts = () => useState("filteredProducts", () => []);
 export const useCategories = () => useState("categories", () => []);
+export const useHeaderTitle = () => useState("header", () => "All Products");
 
 export const useCart = () => {
   const cartQuantity = useCookie("cart-quantity", {

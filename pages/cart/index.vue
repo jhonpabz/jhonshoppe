@@ -1,5 +1,5 @@
 <template>
-  <div class="text-left">
+  <div class="text-left my-14">
     <div class="lg:text-4xl text-2xl my-4 font-bold">Your cart</div>
     <div
       class="flex flex-row items-center lg:space-x-20 md:space-x-10 space-x-1"

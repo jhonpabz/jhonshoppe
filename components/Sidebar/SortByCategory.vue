@@ -20,8 +20,8 @@ import { ref, watchEffect, watch } from "vue";
 
 const selectedCategory = ref("Select Category");
 const { data: categories } = await useAppFetch("getCategories");
-
 const filteredProducts = useFilteredProducts();
+const headerTitle = useHeaderTitle();
 
 watch(selectedCategory, async () => {
   const { data: productsCategory } = await useAppFetch(
@@ -31,6 +31,9 @@ watch(selectedCategory, async () => {
 
   if (productsCategory) {
     filteredProducts.value = productsCategory.value;
+    headerTitle.value =
+      selectedCategory.value.charAt(0).toUpperCase() +
+      selectedCategory.value.slice(1);
   }
 });
 </script>
