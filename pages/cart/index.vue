@@ -27,7 +27,11 @@
           />
         </div>
         <div class="lg:w-72 md:w-64 w-48 content-center">
-          <h1 class="font-bold">{{ item.title }}</h1>
+          <NuxtLink :to="goToDetailsPage(item.id)">
+            <h1 class="font-bold hover:underline cursor-pointer">
+              {{ item.title }}
+            </h1>
+          </NuxtLink>
           <span> ${{ item.price }}</span>
         </div>
 
@@ -59,6 +63,10 @@ const handleRemoveItem = (id) => {
   removeToCart(id);
   cartItemDeleted();
   route.go(0);
+};
+
+const goToDetailsPage = (id) => {
+  return `/products/${id}`;
 };
 </script>
 
