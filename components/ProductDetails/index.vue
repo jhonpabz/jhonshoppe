@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid grid-cols-2 gap-10">
+    <div class="grid lg:grid-cols- md:grid-cols-2 grid-cols-1 gap-10">
       <div class="p-7">
         <img
           :src="product.image"
@@ -15,7 +15,6 @@
         <p class="mb-7">{{ product.description }}</p>
 
         <div class="flex mt-2">
-          <!--         <ButtonQuantity @qty-value="handleQuantityChange" /> -->
           <div>
             <label for="Quantity" class="sr-only"> Quantity </label>
 

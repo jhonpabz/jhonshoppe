@@ -32,7 +32,6 @@ export const useCart = () => {
 
   return {
     addToCart,
-    cartQuantity: cartQuantity.value,
     addCartQuantity,
     removeToCart,
   };

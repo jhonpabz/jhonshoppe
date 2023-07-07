@@ -1,7 +1,9 @@
 <template>
   <div class="text-left">
-    <div class="text-4xl my-4 font-bold">Your cart</div>
-    <div class="flex flex-row items-center space-x-64 border-b">
+    <div class="lg:text-4xl text-2xl my-4 font-bold">Your cart</div>
+    <div
+      class="flex flex-row items-center lg:space-x-48 md:space-x-20 space-x-5"
+    >
       <div>Product</div>
       <div class="w-80 content-center"></div>
 
@@ -9,7 +11,9 @@
     </div>
 
     <div v-for="item in cartItems" :key="item.id">
-      <div class="flex flex-row items-center space-x-64">
+      <div
+        class="flex flex-row items-center lg:space-x-48 md:space-x-20 space-x-5"
+      >
         <div class="w-36">
           <img
             :src="item.image"
