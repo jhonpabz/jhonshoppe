@@ -30,9 +30,15 @@ export const useCart = () => {
     cart.value = filteredCart;
   };
 
+  const totalPrice = (quantity: number, price: number) => {
+    const total = quantity * price;
+    return total;
+  };
+
   return {
     addToCart,
     addCartQuantity,
     removeToCart,
+    totalPrice,
   };
 };
