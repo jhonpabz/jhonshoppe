@@ -12,10 +12,9 @@ interface ProductInterface {
 }
 
 export const useCart = () => {
-  const cartQuantity = useCookie("cartQuantity", {
-    default() {
-      return {};
-    },
+  const cartQuantity = useCookie("cart-quantity", {
+    default: () => 0,
+    watch: true,
   });
   const cart = useCookie("cart", {
     default: () => [],
@@ -23,6 +22,8 @@ export const useCart = () => {
   });
 
   const addToCart = (product: ProductInterface) => {
+    // @ts-ignore
+    cartQuantity.value++;
     // @ts-ignore
     cart.value = [...cart.value, product];
   };
@@ -32,21 +33,15 @@ export const useCart = () => {
     cartQuantity.value = num;
   };
 
-  // const incrementQty = () => {
-  //   // @ts-ignore
-  //   quantity.value++;
-  // };
-  // const decrementQty = () => {
-  //   // @ts-ignore
-  //   quantity.value++;
-  // };
+  const removeToCart = (productId: number) => {
+    const filteredCart = cart.value.filter((item) => item.id !== productId);
+    cart.value = filteredCart;
+  };
 
   return {
     addToCart,
     cartQuantity: cartQuantity.value,
     addCartQuantity,
-    // quantity: quantity.value,
-    // incrementQty,
-    // decrementQty,
+    removeToCart,
   };
 };

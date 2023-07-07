@@ -24,7 +24,7 @@
         <div class="text-lg">
           {{ item.quantity }}
         </div>
-        <button @click="handleRemoveProduct(item.id)" class="btn btn-ghost">
+        <button @click="cart.removeToCart(item.id)" class="btn btn-ghost">
           <IconsDelete class="text-2xl" />
         </button>
       </div>
@@ -33,12 +33,13 @@
 </template>
 
 <script setup>
+const cart = useCart();
 const cartItems = useCookie("cart");
 
-const handleRemoveProduct = (id) => {
-  const itemRemove = cartItems.value.filter((item) => item.id !== id);
-  cartItems.value = itemRemove;
-};
+// const handleRemoveProduct = (id) => {
+//   const itemRemove = cartItems.value.filter((item) => item.id !== id);
+//   cartItems.value = itemRemove;
+// };
 </script>
 
 <style scoped></style>
