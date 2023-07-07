@@ -7,6 +7,7 @@
 
       <div class="text-lg">Quantity</div>
     </div>
+
     <div v-for="item in cartItems" :key="item.id">
       <div class="flex flex-row items-center space-x-64">
         <div class="w-36">
@@ -24,7 +25,7 @@
         <div class="text-lg">
           {{ item.quantity }}
         </div>
-        <button @click="cart.removeToCart(item.id)" class="btn btn-ghost">
+        <button @click="handleRemoveItem(item.id)" class="btn btn-ghost">
           <IconsDelete class="text-2xl" />
         </button>
       </div>
@@ -35,11 +36,14 @@
 <script setup>
 const cart = useCart();
 const cartItems = useCookie("cart");
+const { cartItemDeleted } = useAlert();
+const route = useRouter();
 
-// const handleRemoveProduct = (id) => {
-//   const itemRemove = cartItems.value.filter((item) => item.id !== id);
-//   cartItems.value = itemRemove;
-// };
+const handleRemoveItem = (id) => {
+  cart.removeToCart(id);
+  cartItemDeleted();
+  route.go(0);
+};
 </script>
 
 <style scoped></style>

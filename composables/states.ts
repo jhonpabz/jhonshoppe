@@ -1,16 +1,6 @@
 export const useFilteredProducts = () => useState("filteredProducts", () => []);
 export const useCategories = () => useState("categories", () => []);
 
-interface ProductInterface {
-  id: number;
-  title: string;
-  price: string;
-  category: string;
-  description: string;
-  image: string;
-  quantity: number;
-}
-
 export const useCart = () => {
   const cartQuantity = useCookie("cart-quantity", {
     default: () => 0,
@@ -34,6 +24,8 @@ export const useCart = () => {
   };
 
   const removeToCart = (productId: number) => {
+    cartQuantity.value--;
+    // @ts-ignore
     const filteredCart = cart.value.filter((item) => item.id !== productId);
     cart.value = filteredCart;
   };
