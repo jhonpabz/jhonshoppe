@@ -15,6 +15,7 @@
 <script setup>
 const { data: products } = await useAppFetch("getProducts");
 const filteredProducts = useFilteredProducts();
+const selectedCategory = useSelectedCategory();
 
 const handleSortAlphabetically = () => {
   const sortByName = products.value.sort((a, b) =>
@@ -22,5 +23,6 @@ const handleSortAlphabetically = () => {
   );
 
   filteredProducts.value = sortByName;
+  selectedCategory.value = "Select Category";
 };
 </script>

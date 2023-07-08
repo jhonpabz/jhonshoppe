@@ -1,6 +1,5 @@
 export default defineEventHandler(() => {
-  const { productsUri } = useRuntimeConfig();
-  const url = `${productsUri}/category`;
+  const url = "https://fakestoreapi.com/products/category";
 
   return url;
 });

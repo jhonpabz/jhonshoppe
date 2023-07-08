@@ -17,12 +17,14 @@
 <script setup>
 const { data: products } = await useAppFetch("getProducts");
 const filteredProducts = useFilteredProducts();
+const selectedCategory = useSelectedCategory();
 
 const sortByPriceLowToHigh = () => {
   const sortByPrice = products.value.sort((a, b) =>
     a.price > b.price ? 1 : -1
   );
   filteredProducts.value = sortByPrice;
+  selectedCategory.value = "Select Category";
 };
 
 const sortByPriceHighToLow = () => {
@@ -30,5 +32,6 @@ const sortByPriceHighToLow = () => {
     a.price < b.price ? 1 : -1
   );
   filteredProducts.value = sortByPrice;
+  selectedCategory.value = "Select Category";
 };
 </script>

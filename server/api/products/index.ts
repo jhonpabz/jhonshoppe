@@ -1,6 +1,5 @@
 export default defineEventHandler(async () => {
-  const { productsUri } = useRuntimeConfig();
-  const data = await $fetch(productsUri);
+  const data = await $fetch("https://fakestoreapi.com/products");
 
   return data;
 });
