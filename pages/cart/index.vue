@@ -42,13 +42,11 @@
 </template>
 
 <script setup>
-// import { ref, watchEffect } from "vue";
 const cartQuantity = useCookie("cart-quantity");
 const { removeToCart, totalPrice } = useCart();
 const cartItems = useCookie("cart");
 const { cartItemDeleted } = useAlert();
 const route = useRouter();
-// const grandTotalPrice = ref([]);
 
 const handleRemoveItem = (id) => {
   removeToCart(id);
@@ -59,20 +57,6 @@ const handleRemoveItem = (id) => {
 const goToDetailsPage = (id) => {
   return `/products/${id}`;
 };
-
-// const grandTotal = () => {
-//   cartItems.value.map((item) => {
-//     const itemTotal = item.quantity * item.price;
-
-//     return itemTotal;
-//   });
-// };
-
-// watchEffect(() => {
-//   console.log("grandTotal", grandTotal.value);
-
-//   console.log("grandTotalPrice", grandTotalPrice.value);
-// });
 </script>
 
 <style scoped></style>

@@ -1,5 +1,4 @@
 export const useFilteredProducts = () => useState("filteredProducts", () => []);
-export const useCategories = () => useState("categories", () => []);
 export const useHeaderTitle = () => useState("header", () => "All Products");
 
 export const useCart = () => {
@@ -13,14 +12,12 @@ export const useCart = () => {
   });
 
   const addToCart = (product: ProductInterface) => {
-    // @ts-ignore
     cartQuantity.value++;
     // @ts-ignore
     cart.value = [...cart.value, product];
   };
 
   const addCartQuantity = (num: number) => {
-    // @ts-ignore
     cartQuantity.value = num;
   };
 

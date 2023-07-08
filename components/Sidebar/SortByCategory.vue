@@ -1,9 +1,4 @@
 <template>
-  <!-- <label
-    for="countries"
-    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ml-4"
-    >Select Category</label
-  > -->
   <select
     v-model="selectedCategory"
     class="select select-bordered select-sm ml-4"

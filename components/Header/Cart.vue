@@ -6,7 +6,6 @@
     >
       <div class="lg:w-36 w-24">Product</div>
       <div class="lg:w-72 md:w-64 w-48 content-center"></div>
-
       <div class="text-lg w-16">Quantity</div>
       <div class="text-lg w-12">Action</div>
       <div class="text-lg w-12">Total</div>

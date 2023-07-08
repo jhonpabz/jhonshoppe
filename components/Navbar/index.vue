@@ -29,11 +29,11 @@
           </li>
         </ul>
       </div>
-      <div class="btn btn-ghost normal-case text-xl">
-        <NuxtLink to="/" class="font-extrabold"
-          >JHON<span class="text-green">SHOPPE</span></NuxtLink
-        >
-      </div>
+
+      <NuxtLink to="/" class="font-extrabold btn btn-ghost normal-case text-xl"
+        >JHON<span class="text-green">SHOPPE</span>
+      </NuxtLink>
+
       <label for="my-drawer" class="btn btn-ghost drawer-button ml-4">
         <IconsFilter class="text-2xl" />Filter
       </label>
@@ -42,7 +42,6 @@
       <ul class="menu menu-horizontal px-1"></ul>
     </div>
 
-    <!-- CART BUTTON -->
     <div class="flex-none navbar-end">
       <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle">
@@ -70,37 +69,21 @@
         >
           <div class="card-body">
             <span class="font-bold text-lg">{{ cartItems }} Items</span>
-            <!--     <span class="text-info">Subtotal: $999</span> -->
+
             <div class="card-actions">
               <NuxtLink to="/cart" class="btn btn-success btn-block"
-                >View cart</NuxtLink
-              >
+                >View cart
+              </NuxtLink>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!--  <div class="navbar-end">
-      <NuxtLink to="/cart">
-        <a class="btn">
-          <IconsCart />
-        </a>
-      </NuxtLink>
-    </div> -->
   </div>
 </template>
 
 <script setup>
 const cartItems = useCookie("cart-quantity");
-// const url = useRoute();
-
-// const isInvisible = ref(false);
-
-// watch(url, () => {
-//   if (url.path !== "/") {
-//     isInvisible.value = true;
-//   }
-// });    :class="{ invisible: isInvisible }"
 </script>
 
 <style></style>

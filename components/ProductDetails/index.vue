@@ -45,15 +45,14 @@
               </button>
             </div>
           </div>
-          <NuxtLink to="/">
-            <button
-              @click="handleAddToCart"
-              class="btn btn-success"
-              :disabled="isDisabled"
-            >
-              <IconsCart />
-              Add to cart
-            </button>
+          <NuxtLink
+            class="btn btn-success"
+            to="/"
+            :disabled="isDisabled"
+            @click="handleAddToCart"
+          >
+            <IconsCart />
+            Add to cart
           </NuxtLink>
         </div>
       </div>
@@ -70,7 +69,6 @@ const cartItems = useCookie("cart");
 const { cartSuccess } = useAlert();
 
 const quantity = ref(1);
-
 const isDisabled = ref(null);
 
 const handleAddToCart = () => {
