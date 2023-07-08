@@ -32,11 +32,11 @@
 </template>
 
 <script setup>
-import { ref, watch, watchEffect } from "vue";
+import { watch, watchEffect } from "vue";
 const { data: products } = await useAppFetch("getProducts");
 
 const filteredProducts = useFilteredProducts();
-const searchQuery = ref("");
+const searchQuery = useSearchQuery();
 
 watch(searchQuery, () => {
   if (searchQuery.value !== "") {

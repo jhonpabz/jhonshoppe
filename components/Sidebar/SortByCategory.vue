@@ -11,11 +11,11 @@
 </template>
 
 <script setup>
-import { ref, watchEffect, watch } from "vue";
+import { watch } from "vue";
 
-const selectedCategory = ref("Select Category");
 const { data: categories } = await useAppFetch("getCategories");
 const filteredProducts = useFilteredProducts();
+const selectedCategory = useSelectedCategory();
 const headerTitle = useHeaderTitle();
 
 watch(selectedCategory, async () => {

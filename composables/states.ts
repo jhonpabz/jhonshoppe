@@ -1,5 +1,8 @@
 export const useFilteredProducts = () => useState("filteredProducts", () => []);
 export const useHeaderTitle = () => useState("header", () => "All Products");
+export const useSearchQuery = () => useState("searchQuery", () => "");
+export const useSelectedCategory = () =>
+  useState("selectedCategory", () => "Select Category");
 
 export const useCart = () => {
   const cartQuantity = useCookie("cart-quantity", {
