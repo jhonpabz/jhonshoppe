@@ -27,8 +27,8 @@ export const useCart = () => {
   const removeToCart = (productId: number) => {
     cartQuantity.value--;
     // @ts-ignore
-    const filteredCart = cart.value.filter((item) => item.id !== productId);
-    cart.value = filteredCart;
+    const removeItem = cart.value.filter((item) => item.id !== productId);
+    cart.value = removeItem;
   };
 
   const totalPrice = (quantity: number, price: number) => {
