@@ -23,9 +23,27 @@
           class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
-            <label for="my-drawer" class="drawer-button">
-              <IconsFilter class="text-2xl" />Filter
-            </label>
+            <NuxtLink to="/"> <a>Home</a></NuxtLink>
+          </li>
+
+          <li>
+            <NuxtLink to="/products/electronics"> <a>Electronics</a></NuxtLink>
+          </li>
+
+          <li>
+            <NuxtLink to="/products/jewelry"> <a>Jewelry</a></NuxtLink>
+          </li>
+
+          <li>
+            <NuxtLink to="/products/mens-clothing">
+              <a>Men's Clothing</a></NuxtLink
+            >
+          </li>
+
+          <li>
+            <NuxtLink to="/products/womens-clothing">
+              <a>Women's Clothing</a></NuxtLink
+            >
           </li>
         </ul>
       </div>
@@ -39,10 +57,34 @@
       </label>
     </div>
     <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal px-1"></ul>
+      <ul class="menu menu-horizontal px-1">
+        <li>
+          <NuxtLink to="/"> <a>Home</a></NuxtLink>
+        </li>
+
+        <li>
+          <NuxtLink to="/products/electronics"> <a>Electronics</a></NuxtLink>
+        </li>
+
+        <li>
+          <NuxtLink to="/products/jewelry"> <a>Jewelry</a></NuxtLink>
+        </li>
+
+        <li>
+          <NuxtLink to="/products/mens-clothing">
+            <a>Men's Clothing</a></NuxtLink
+          >
+        </li>
+
+        <li>
+          <NuxtLink to="/products/womens-clothing">
+            <a>Women's Clothing</a></NuxtLink
+          >
+        </li>
+      </ul>
     </div>
 
-    <div class="flex-none navbar-end">
+    <div class="navbar-end">
       <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle">
           <div class="indicator">
