@@ -5,9 +5,9 @@ const filteredProducts = useFilteredProducts();
 
 <template>
   <div class="relative bg-cover electronics-bg overflow-hidden">
-    <div class="z-50 absolute inset-y-2/4 inset-x-2/4">
+    <div class="z-50 absolute inset-y-1/2 inset-x-2/4">
       <div class="flex flex-col items-center justify-center">
-        <p class="text-7xl text-white w-max">Shop Now!</p>
+        <p class="lg:text-7xl text-4xl text-white w-max">Shop Now!</p>
         <NuxtLink
           to="/products/electronics"
           class="btn btn-active bg-green border-green w-48 mt-8 rounded-3xl text-base"
@@ -48,7 +48,7 @@ const filteredProducts = useFilteredProducts();
 </template>
 
 <style scoped>
-.electronics-bg {
+/* .electronics-bg {
   height: calc(100vh - 65px);
-}
+} */
 </style>
