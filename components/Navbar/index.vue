@@ -51,10 +51,6 @@
       <NuxtLink to="/" class="font-extrabold btn btn-ghost normal-case text-xl"
         >JHON<span class="text-green">SHOPPE</span>
       </NuxtLink>
-      <!-- 
-      <label for="my-drawer" class="btn btn-ghost drawer-button ml-4">
-        <IconsFilter class="text-2xl" />Filter
-      </label> -->
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">

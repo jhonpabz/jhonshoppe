@@ -51,7 +51,7 @@
         <div class="w-12"></div>
 
         <div class="font-semibold w-12">
-          <div v-if="grandTotal">${{ grandTotal }}</div>
+          <div v-if="grandTotal">${{ grandTotal.toFixed(2) }}</div>
         </div>
       </div>
     </div>
@@ -65,6 +65,7 @@ const { removeToCart, totalPrice } = useCart();
 const cartItems = useCookie("cart");
 const { cartItemDeleted } = useAlert();
 const route = useRouter();
+let grandTotal = ref(0);
 
 const handleRemoveItem = (id) => {
   removeToCart(id);
@@ -75,8 +76,6 @@ const handleRemoveItem = (id) => {
 const goToDetailsPage = (id) => {
   return `/products/${id}`;
 };
-
-let grandTotal = ref(0);
 
 for (let i = 0; i < cartItems.value.length; i++) {
   grandTotal.value += cartItems.value[i].quantity * cartItems.value[i].price;

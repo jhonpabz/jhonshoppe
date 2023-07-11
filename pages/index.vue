@@ -7,7 +7,7 @@ const filteredProducts = useFilteredProducts();
   <HeaderMasthead />
   <Carousel />
 
-  <div class="my-14">
+  <div class="my-20">
     <Header />
     <Filter />
     <div
