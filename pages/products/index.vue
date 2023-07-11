@@ -4,8 +4,12 @@ const filteredProducts = useFilteredProducts();
 </script>
 
 <template>
+  <HeaderMasthead />
+  <Carousel />
+
   <div class="my-14">
     <Header />
+    <Filter />
     <div
       v-if="filteredProducts?.length"
       class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-8 mt-8"

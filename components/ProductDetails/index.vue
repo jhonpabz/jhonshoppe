@@ -22,7 +22,7 @@
 
             <div class="flex items-center border border-gray-200 rounded mr-3">
               <button
-                @click="quantity--"
+                @click="decrement"
                 type="button"
                 class="w-10 h-11 leading-10 text-gray-600 transition hover:opacity-75"
               >
@@ -102,6 +102,12 @@ const productItem = () => {
 watch(quantity, () => {
   productItem();
 });
+
+const decrement = () => {
+  if (quantity.value > 0) {
+    quantity.value--;
+  }
+};
 </script>
 
 <style scoped></style>

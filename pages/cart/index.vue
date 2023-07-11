@@ -38,10 +38,28 @@
         </div>
       </div>
     </div>
+
+    <!-- Total Price -->
+    <div class="border-t border-gray">
+      <div
+        class="flex flex-row items-center lg:space-x-20 md:space-x-10 space-x-1 mt-4"
+      >
+        <div class="lg:w-36 w-24">Grand Total</div>
+        <div class="lg:w-72 md:w-64 w-48 content-center"></div>
+
+        <div class="w-16"></div>
+        <div class="w-12"></div>
+
+        <div class="font-semibold w-12">
+          <div v-if="grandTotal">${{ grandTotal }}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 const cartQuantity = useCookie("cart-quantity");
 const { removeToCart, totalPrice } = useCart();
 const cartItems = useCookie("cart");
@@ -57,6 +75,12 @@ const handleRemoveItem = (id) => {
 const goToDetailsPage = (id) => {
   return `/products/${id}`;
 };
+
+let grandTotal = ref(0);
+
+for (let i = 0; i < cartItems.value.length; i++) {
+  grandTotal.value += cartItems.value[i].quantity * cartItems.value[i].price;
+}
 </script>
 
 <style scoped></style>
