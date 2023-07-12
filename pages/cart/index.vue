@@ -1,8 +1,8 @@
 <template>
-  <div v-if="!cartQuantity">
+  <div v-if="!cartQuantity" class="empty_container">
     <HeaderEmpty />
   </div>
-  <div v-else class="text-left my-14">
+  <div v-else class="text-left my-14 cart_container">
     <HeaderCart />
     <div v-for="item in cartItems" :key="item.id">
       <div
@@ -82,4 +82,12 @@ for (let i = 0; i < cartItems.value.length; i++) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.empty_container {
+  min-height: calc(100vh - 310px);
+}
+
+.cart_container {
+  min-height: calc(100vh - 420px);
+}
+</style>
