@@ -18,6 +18,7 @@
         <img
           src="~/assets/img/jewelry.jpg"
           alt="Women"
+          loading="lazy"
           class="hover:brightness-75 transition duration-200 ease-out hover:ease-in w-full h-auto"
         />
       </div>
@@ -36,6 +37,7 @@
         <img
           src="~/assets/img/men.jpg"
           alt="Women"
+          loading="lazy"
           class="hover:brightness-75 transition duration-200 ease-out hover:ease-in w-full h-auto"
         />
       </div>
@@ -54,6 +56,7 @@
         <img
           src="~/assets/img/women.jpg"
           alt="Women"
+          loading="lazy"
           class="hover:brightness-75 transition duration-200 ease-out hover:ease-in w-full h-auto"
         />
       </div>

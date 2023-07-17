@@ -5,6 +5,7 @@ const filteredProducts = useFilteredProducts();
 
 <template>
   <HeaderMasthead />
+  <Tagline />
   <Carousel />
 
   <div class="my-20">

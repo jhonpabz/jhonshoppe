@@ -3,7 +3,7 @@ require("dotenv").config();
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase"],
   app: {
     head: {
       title: "JHONSHOPPE",

@@ -18,22 +18,17 @@
           Women's Clothing
         </NuxtLink>
         <NuxtLink to="/cart" class="link link-hover"> Cart </NuxtLink>
+        <NuxtLink to="/profile" class="link link-hover"> Profile </NuxtLink>
       </div>
       <div>
         <div class="grid grid-flow-col gap-4 text-4xl">
-          <NuxtLink
-            to="https://www.facebook.com/jhoncesarpablo/"
-            target="_blank"
-          >
+          <NuxtLink to="https://www.facebook.com/" target="_blank">
             <IconsFb />
           </NuxtLink>
-          <NuxtLink
-            to="https://ph.linkedin.com/in/jhoncesarpablo"
-            target="_blank"
-          >
+          <NuxtLink to="https://ph.linkedin.com/in/" target="_blank">
             <IconsLinkedin />
           </NuxtLink>
-          <NuxtLink to="https://github.com/jhonpabz" target="_blank">
+          <NuxtLink to="https://github.com/" target="_blank">
             <IconsGithub />
           </NuxtLink>
         </div>

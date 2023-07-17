@@ -2,7 +2,7 @@
   <div v-if="!cartQuantity" class="empty_container">
     <HeaderEmpty />
   </div>
-  <div v-else class="text-left my-14 cart_container">
+  <div v-else class="text-left my-14 cart_container pb-14">
     <HeaderCart />
     <div v-for="item in cartItems" :key="item.id">
       <div
@@ -59,7 +59,10 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+definePageMeta({
+  middleware: ["auth"],
+});
+
 const cartQuantity = useCookie("cart-quantity");
 const { removeToCart, totalPrice } = useCart();
 const cartItems = useCookie("cart");

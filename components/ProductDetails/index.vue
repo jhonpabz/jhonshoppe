@@ -61,7 +61,7 @@
 </template>
 
 <script setup>
-import { watchEffect, watch, ref } from "vue";
+import { watchEffect, watch, ref, computed } from "vue";
 
 const { product } = defineProps(["product"]);
 const cart = useCart();

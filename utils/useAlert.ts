@@ -10,6 +10,15 @@ export const useAlert = () => {
     });
   };
 
+  const signUpSuccess = () => {
+    Swal.fire({
+      title: "Account created!",
+      text: "Check your email to confirm your account",
+      icon: "success",
+      confirmButtonText: "Okay",
+    });
+  };
+
   const cartItemDeleted = () => {
     Swal.fire({
       title: "Deleted!",
@@ -22,5 +31,6 @@ export const useAlert = () => {
   return {
     cartSuccess,
     cartItemDeleted,
+    signUpSuccess,
   };
 };
