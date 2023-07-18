@@ -21,7 +21,7 @@
             placeholder="Password"
           />
 
-          <FormError v-if="errorMsg" :msg="errorMsg" />
+          <FormError v-if="errorMsg" :msg="errorMsg" @close="closeErr" />
 
           <button
             type="submit"
@@ -82,6 +82,10 @@ const signUp = async () => {
   } catch (error) {
     errorMsg.value = error.message;
   }
+};
+
+const closeErr = (n) => {
+  errorMsg.value = n;
 };
 </script>
 

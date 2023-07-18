@@ -5,7 +5,10 @@
   >
     <strong class="font-bold"></strong>
     <span class="block sm:inline">{{ msg }}</span>
-    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+    <span
+      class="absolute top-0 bottom-0 right-0 px-4 py-3"
+      @click="$emit('close', null)"
+    >
       <svg
         class="fill-current h-6 w-6 text-red-500"
         role="button"

@@ -47,7 +47,7 @@
           </div>
           <NuxtLink
             class="btn btn-success"
-            to="/"
+            :to="{ path: '/', hash: '#products' }"
             :disabled="isDisabled"
             @click="handleAddToCart"
           >
