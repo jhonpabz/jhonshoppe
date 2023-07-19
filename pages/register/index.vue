@@ -6,6 +6,19 @@
       >
         <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
           <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+          <input
+            type="text"
+            class="block border border-grey-light w-full p-3 rounded mb-4"
+            v-model="name"
+            placeholder="Full Name"
+          />
+
+          <input
+            type="text"
+            class="block border border-grey-light w-full p-3 rounded mb-4"
+            v-model="pic_link"
+            placeholder="Profile Picture link"
+          />
 
           <input
             type="text"
@@ -67,6 +80,8 @@ const { signUpSuccess } = useAlert();
 const client = useSupabaseAuthClient();
 const router = useRouter();
 const email = ref("");
+const name = ref("");
+const pic_link = ref("");
 const password = ref(null);
 const errorMsg = ref(null);
 
@@ -75,6 +90,12 @@ const signUp = async () => {
     const { data, error } = await client.auth.signUp({
       email: email.value,
       password: password.value,
+      options: {
+        data: {
+          name: name.value,
+          pic_link: pic_link.value,
+        },
+      },
     });
     if (error) throw error;
     signUpSuccess();
