@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-hidden w-screen"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-hidden w-auto"
     >
       <div class="relative">
         <div class="z-10 absolute inset-y-2/4 inset-x-2/4">
