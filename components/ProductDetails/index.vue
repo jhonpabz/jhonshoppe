@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="grid lg:grid-cols- md:grid-cols-2 grid-cols-1 gap-10 lg:mx-28 md:mx-11 mx-6 mb-24"
+      class="grid lg:grid-cols- md:grid-cols-2 grid-cols-1 gap-10 lg:mx-28 md:mx-11 mx-6 mb-24 product_container"
     >
       <div class="p-7">
         <img
@@ -110,4 +110,8 @@ const decrement = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.product_container {
+  min-height: calc(100vh - 400px);
+}
+</style>

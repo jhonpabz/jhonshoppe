@@ -25,7 +25,9 @@
 </template>
 
 <script setup>
-const { msg } = defineProps(["msg"]);
+const { msg } =
+
+defineProps(["msg"]);
 </script>
 
 <style scoped></style>

@@ -80,7 +80,7 @@ const goToDetailsPage = (id) => {
   return `/products/${id}`;
 };
 
-for (let i = 0; i < cartItems.value.length; i++) {
+for (let i = 0; i < cartItems?.value.length; i++) {
   grandTotal.value += cartItems.value[i].quantity * cartItems.value[i].price;
 }
 </script>
